@@ -1,6 +1,6 @@
 # ngx_lua_thrift
 
-Steps of installing
+## Steps of installing
 ======
 
     download https://openresty.org/download/openresty-x.y.z.a.tar.gz .
@@ -10,7 +10,7 @@ Steps of installing
     compile source in directory openresty/lualib/libthrift/c
     Start openresty nginx server.
 
-Testing
+## Testing
 =======
     To access web url http://127.0.0.1:8000/v1/lua_thrift and get result.
 
