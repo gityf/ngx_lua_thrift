@@ -1,5 +1,7 @@
 # ngx_lua_thrift
+
 Steps of installing
+======
 
     download https://openresty.org/download/openresty-x.y.z.a.tar.gz .
     install openresty.
