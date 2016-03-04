@@ -1,5 +1,11 @@
 # ngx_lua_thrift
-support thrift protocol: binary,compact and JSON.
+## protocol
+
+    support thrift protocol: binary,compact and JSON.
+    binary: TBinaryProtocol.lua
+    compact: TCompactProtocol.lua
+    JSON:TJsonProtocol.lua
+
 ## Steps of installing
 ======
 
