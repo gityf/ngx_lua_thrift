@@ -23,15 +23,22 @@ require 'libluabpack'
 TFramedTransport = TTransportBase:new{
   __type = 'TFramedTransport',
   doRead = true,
-  doWrite = true
+  doWrite = true,
+  wBuf = '',
+  rBuf = ''
 }
 
-function TFramedTransport:new(trans)
-  return __TObject.new(TFramedTransport, {
-    wBuf = '',
-    rBuf = '',
-    trans = trans
-  })
+function TFramedTransport:new(obj)
+  if ttype(obj) ~= 'table' then
+    error(ttype(self) .. 'must be initialized with a table')
+  end
+
+  -- Ensure a transport is provided
+  if not obj.trans then
+    error('You must provide ' .. ttype(self) .. ' with a trans')
+  end
+
+  return TTransportBase.new(self, obj)
 end
 
 function TFramedTransport:isOpen()
