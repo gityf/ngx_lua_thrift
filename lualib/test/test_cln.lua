@@ -7,8 +7,7 @@ require "TSocket"
 _M = {}
 function _M.demoFunc()
     local socket = TSocket:new{
-        --host='127.0.0.1',
-        host='172.22.30.134',
+        host='127.0.0.1',
         port=8090
     }
     --local protocol = TBinaryProtocol:new{
