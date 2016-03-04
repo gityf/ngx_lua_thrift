@@ -14,6 +14,6 @@
 =======
     To access web url http://127.0.0.1:8000/v1/lua_thrift and get result.
 
-          1.return 1 by FunCall.*
-          2.return 2 by FunCall.*
+          1.return 1 by FunCall.
+          2.return 2 by FunCall.
 
