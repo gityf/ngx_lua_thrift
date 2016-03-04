@@ -2,10 +2,14 @@
 ## protocol
 
     support thrift protocol: binary,compact and JSON.
-    *binary*: TBinaryProtocol.lua
+    binary: TBinaryProtocol.lua
     compact: TCompactProtocol.lua
     JSON:TJsonProtocol.lua
+    
+## socket
 
+    socket: ngx.socket.tcp()
+    
 ## Steps of installing
 ======
 
