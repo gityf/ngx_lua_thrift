@@ -54,6 +54,10 @@ function THttpTransport:close()
   return self.trans:close()
 end
 
+function THttpTransport:readAll(len)
+  return self:read(len)
+end
+
 function THttpTransport:read(len)
   if string.len(self.rBuf) == 0 then
     self:_readMsg()
