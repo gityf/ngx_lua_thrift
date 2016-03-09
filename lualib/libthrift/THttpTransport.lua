@@ -62,7 +62,6 @@ function THttpTransport:read(len)
   if string.len(self.rBuf) == 0 then
     self:_readMsg()
   end
-  print(self.rBuf)
   if len > string.len(self.rBuf) then
     local val = self.rBuf
     self.rBuf = ''
@@ -76,19 +75,16 @@ end
 
 function THttpTransport:_readMsg()
   self.rBuf = self.trans:read(2048, true)
-  print(self.rBuf)
   if not self.rBuf then
     self.rBuf = ""
     return
   end
   self:getLine()
-  print(self.rBuf)
   local headers = self:_parseHeaders()
   if not headers then
     self.rBuf = ""
     return
   end
-  print(self.rBuf)
 
   local length = tonumber(headers["Content-Length"])
   if length then
@@ -97,12 +93,11 @@ function THttpTransport:_readMsg()
   else
     local encoding = headers["Transfer-Encoding"]
     if encoding and string.lower(encoding) == "chunked" then
-        self.rBuf = self.rBuf.. self:_readChunked()
+      self.rBuf = self.rBuf.. self:_readChunked()
     else
-        self.rBuf = self.rBuf .. self.trans:read(2048, true)
+      self.rBuf = self.rBuf .. self.trans:read(2048, true)
     end
   end
-  print(self.rBuf)
   if self.rBuf == nil then
     self.rBuf = ""
   end
