@@ -1,10 +1,11 @@
 # ngx_lua_thrift
 ## protocol
 
-    support thrift protocol: binary,compact and JSON.
+    Support protocol: binary,compact and JSON.
     binary: TBinaryProtocol.lua
     compact: TCompactProtocol.lua
     JSON:TJsonProtocol.lua
+    Support transport: RawSocket,Buffered,Framed and Http.
     
 ## socket
 
