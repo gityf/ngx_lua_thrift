@@ -1,4 +1,4 @@
-# ngx_lua_thrift to access thrift by lua. [![API Documentation][![MIT License][license-svg]][license-url]
+# ngx_lua_thrift to access thrift by lua. [![API Documentation]][![MIT License][license-svg]][license-url]
 ## protocol
 ```bash
     Support protocol: binary,compact and JSON.
