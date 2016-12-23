@@ -29,5 +29,4 @@
           1.return 1 by FunCall.
           2.return 2 by FunCall.
 ```
-[license-url]: https://github.com/deuill/go-php/blob/master/LICENSE
 [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
