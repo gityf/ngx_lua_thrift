@@ -24,7 +24,7 @@
 ```
 ## demo of lua thrift client
 ```lua
-    require "rpc_RpcService"
+require "rpc_RpcService"
 require "TFramedTransport"
 require "TBinaryProtocol"
 require "TJsonProtocol"
@@ -36,6 +36,7 @@ function _M.demoFunc()
         host='127.0.0.1',
         port=8090
     }
+    -- to select protocol of thrift.
     --local protocol = TBinaryProtocol:new{
     -- local protocol = TCompactProtocol:new{
         --trans = socket
@@ -45,6 +46,7 @@ function _M.demoFunc()
     client = RpcServiceClient:new{
         protocol = protocol
     }
+    -- to test different type of struct.
     local argStruct = ArgStruct:new{
       argByte = 53,
       argString = "str 测试字符串\"\t\n\r\'\b\fvalue",
@@ -54,8 +56,8 @@ function _M.demoFunc()
       argDouble = 11.22,
       argBool = true
     }
-print("11")
-    -- Open the socket  
+
+    -- Open the socket using ngx_socket
     socket:open()
     pmap = {}
     pmap.name = "namess"
@@ -63,7 +65,8 @@ print("11")
     pistrmap = {}
     pistrmap[10] = "val10"
     pistrmap[20] = "val20"
-print("21")
+
+    -- to do a thrift rpc call and store response into variable ret.
     ret = client:funCall(argStruct, 53, 54, 12, 34, 11.22, "login", pmap,
         pistrmap,
         {"ele1", "ele2", "ele3"},
