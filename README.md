@@ -13,14 +13,14 @@
     socket: ngx.socket.tcp()
 ```
 ## Steps of installing
-======
 ```
-    download https://openresty.org/download/openresty-x.y.z.a.tar.gz .
-    install openresty.
-    To copy all files in lualib to directory openresty/lualib/
-    To cpoy all conf file to directory openresty/nginx/conf/
-    compile source in directory openresty/lualib/libthrift/c
-    Start openresty nginx server.
+    1. download https://openresty.org/download/openresty-x.y.z.a.tar.gz .
+    2. install openresty.
+    3. To copy all files in lualib to directory openresty/lualib/
+    4. To cpoy all conf file to directory openresty/nginx/conf/
+    5. compile source in directory openresty/lualib/libthrift/c
+        cd /usr/local/openresty/lualib/libthrift/c ; make
+    6. Start openresty nginx server.
 ```
 ## demo of lua thrift client
 ```lua
@@ -82,8 +82,22 @@ function _M.demoFunc()
 end
 return _M
 ```
+## nginx conf
+```
+server {
+        listen 8000;
+
+        location = /v1/lua_thrift{
+            access_log logs/access.log main;
+            add_header 'Content-Type' 'text/html';
+            content_by_lua '
+                local cln = require "test_cln"
+                ngx.say(cln.demoFunc());
+            ';
+        }
+}
+```
 ## Testing
-=======
     To access web url http://127.0.0.1:8000/v1/lua_thrift and get result.
 ```
           1.return 1 by FunCall.
