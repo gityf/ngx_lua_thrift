@@ -1,4 +1,4 @@
-# ngx_lua_thrift [![MIT License][license-svg]][license-url]
+# ngx_lua_thrift Apache2.0 License
     to access thrift by lua.
 ## protocol
 ```bash
