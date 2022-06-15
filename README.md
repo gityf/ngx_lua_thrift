@@ -62,15 +62,26 @@ function _M.demoFunc()
     pmap = {}
     pmap.name = "namess"
     pmap.pass = "vpass"
+    -- map[int]string
     pistrmap = {}
     pistrmap[10] = "val10"
     pistrmap[20] = "val20"
+    -- str set define is map[string]bool
+    paramSets = {}
+    paramSets["ele1"] = true
+    paramSets["ele2"] = true
+    paramSets["ele3"] = true
+    -- int set define is map[int]bool
+    intSets = {}
+    intSets[11] = true
+    intSets[22] = true
+    intSets[33] = true
 
     -- to do a thrift rpc call and store response into variable ret.
     ret = client:funCall(argStruct, 53, 54, 12, 34, 11.22, "login", pmap,
         pistrmap,
-        {"ele1", "ele2", "ele3"},
-        {11,22,33},
+        paramSets,
+        intSets,
         {"l1.","l2."}, false);
     res = ""
     for k,v in pairs(ret)
