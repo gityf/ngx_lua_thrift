@@ -37,10 +37,14 @@ print("11")
     pistrmap = {}
     pistrmap[10] = "val10"
     pistrmap[20] = "val20"
+    paramSets = {}
+    paramSets["ele1"] = true
+    paramSets["ele2"] = true
+    paramSets["ele3"] = true
 print("21")
     ret = client:funCall(argStruct, 53, 54, 12, 34, 11.22, "login", pmap,
         pistrmap,
-        {"ele1", "ele2", "ele3"},
+        paramSets,
         {11,22,33},
         {"l1.","l2."}, false);
     res = ""
