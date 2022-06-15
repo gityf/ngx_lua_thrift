@@ -305,7 +305,7 @@ function funCall_args:write(oprot)
   if self.paramSetStr then
     oprot:writeFieldBegin('paramSetStr', TType.SET, 10)
     oprot:writeSetBegin(TType.STRING, ttable_size(self.paramSetStr))
-    for _, iter31 in pairs(self.paramSetStr) do
+    for iter31, _ in pairs(self.paramSetStr) do
       oprot:writeString(iter31)
     end
     oprot:writeSetEnd()
@@ -314,7 +314,7 @@ function funCall_args:write(oprot)
   if self.paramSetI64 then
     oprot:writeFieldBegin('paramSetI64', TType.SET, 11)
     oprot:writeSetBegin(TType.I64, ttable_size(self.paramSetI64))
-    for _, iter32 in pairs(self.paramSetI64) do
+    for iter32, _ in pairs(self.paramSetI64) do
       oprot:writeI64(iter32)
     end
     oprot:writeSetEnd()
